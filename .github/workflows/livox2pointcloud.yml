@@ -1,0 +1,24 @@
+name: build livox2pointcloud
+
+on:
+  push:
+    branches: [ master, feature/ci ]
+    paths-ignore: '**.md'
+  pull_request:
+    branches: [ master ]
+    paths-ignore: '**.md'
+
+env:
+  PACKAGE_NAME: livox2pointcloud
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - name: build
+        working-directory: ${{ github.workspace }}/tools/${{ env.PACKAGE_NAME }}/docker
+        run: bash build.sh 

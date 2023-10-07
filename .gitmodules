@@ -1,0 +1,3 @@
+[submodule "tools/livox2pointcloud"]
+	path = tools/livox2pointcloud
+	url = https://github.com/juliangaal/livox2pointcloud.git
